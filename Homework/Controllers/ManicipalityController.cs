@@ -22,13 +22,6 @@ namespace Homework.Controllers
         {
             try
             {
-                var fileExt = System.IO.Path.GetExtension(file.FileName).Substring(1);
-
-                if (fileExt != "csv")
-                {
-                    return BadRequest("error.unsuportedFileFormat");
-                }
-
                 await _manicipalityLogic.AddTaxesFromFile(file);
 
                 return Ok();
