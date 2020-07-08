@@ -16,6 +16,15 @@ namespace Homework.Database.Repositories
             _homeworkDbContext = homeworkDbContext;
         }
 
+        public Tax AddTax(Tax taxToCreate)
+        {
+            _homeworkDbContext.Taxes.Add(taxToCreate);
+
+            _homeworkDbContext.SaveChanges();
+
+            return taxToCreate;
+        }
+
         public Task<Tax> GetTax(Guid manicipalityId, DateTime date)
         {
             return _homeworkDbContext.Taxes

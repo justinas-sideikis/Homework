@@ -23,13 +23,33 @@ namespace Homework.Controllers
         {
             try
             {
-                var result = await _taxesLogic.GetTaxByManicipalityAndDate(requestModel.Manicipality, requestModel.Date);
+                var result = await _taxesLogic.GetTaxByManicipalityAndDate(requestModel);
 
                 return Ok(result);
             }
             catch(EntityNotFoundException<Manicipality>)
             {
                 return BadRequest("error.manicipalityNotFound");
+            }
+            catch
+            {
+                return BadRequest("error.unknown");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddTax(TaxAddRequestModel requestModel)
+        {
+            try
+            {
+                var result = await _taxesLogic.AddTax(requestModel);
+
+                if (result)
+                {
+                    return Ok();
+                }
+
+                return BadRequest("error.failedToAdd");
             }
             catch
             {

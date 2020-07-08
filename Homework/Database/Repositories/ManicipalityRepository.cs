@@ -15,9 +15,13 @@ namespace Homework.Database.Repositories
             _homeworkDbContext = homeworkDbContext;
         }
 
-        public Task<List<Manicipality>> GetManicipalities()
+        public Manicipality AddManicipality(Manicipality manicipalityToCreate)
         {
-            return _homeworkDbContext.Manicipalities.ToListAsync();
+            _homeworkDbContext.Add(manicipalityToCreate);
+
+            _homeworkDbContext.SaveChanges();
+
+            return manicipalityToCreate;
         }
 
         public Task<Manicipality> GetManicipalityByName(string name)
