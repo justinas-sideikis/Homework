@@ -2,7 +2,6 @@
 using Homework.Exceptions;
 using Homework.Logic.Interface;
 using Homework.Models;
-using Homework.Models.Enums;
 using Homework.ViewModels;
 using System;
 using System.Threading.Tasks;

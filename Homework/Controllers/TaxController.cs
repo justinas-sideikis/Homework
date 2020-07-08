@@ -46,7 +46,7 @@ namespace Homework.Controllers
 
                 if (result)
                 {
-                    return Ok();
+                    return StatusCode(201);
                 }
 
                 return BadRequest("error.failedToAdd");

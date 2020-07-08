@@ -33,6 +33,7 @@ namespace Homework
             services.AddScoped<IManicipalityRepository, ManicipalityRepository>();
 
             services.AddScoped<ITaxesLogic, TaxesLogic>();
+            services.AddScoped<IManicipalityLogic, ManicipalityLogic>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
